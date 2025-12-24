@@ -2,7 +2,7 @@ This repository provides C++ implementations and case-study data for the joint b
 
 The implementation includes a dynamic-link library (DLL) that implements a general multimodal network framework and traffic assignment algorithms.
 
-## Build `multi_net.dll` (Windows, MinGW-w64 g++)
+## How to use (Windows, MinGW-w64 g++)
 
 This project is built and tested on Windows using the MinGW-w64 GCC toolchain (`g++`) and Eigen3 (header-only). The build commands below mirror the tested task configuration.
 
