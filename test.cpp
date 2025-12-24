@@ -161,11 +161,7 @@ int main() {
     net.createNetwork("siouxfalls");
     std::vector<std::string> heter = {"B1", "B2", "B3", "B4"};
     net.setHeterUser(heter);
-    // net.setHeterVOT({{"B1", 0.10}, {"B2", 0.10}, {"B3", 0.10}, {"B4", 0.10}});
     net.setHeterVOT({{"B1", 0.15}, {"B2", 0.15}, {"B3", 0.15}, {"B4", 0.15}});
-    // net.setHeterTollBike({{"B1", 1}, {"B2", 0.767886}, {"B3", 0}, {"B4", 0}});
-    // net.setHeterTollRH({{"B1", 1}, {"B2", 0.804712}, {"B3", 0.747172}, {"B4", 0.652242}});
-    // net.setHeterTollPT({{"B1", 1}, {"B2", 0.738492}, {"B3", 0.455068}, {"B4", 0.0}});
 
     net.setHeterTollBike({{"B1", 1}, {"B2", 0.5}, {"B3", 0}, {"B4", 0}});
     net.setHeterTollRH({{"B1", 1}, {"B2", 0.8}, {"B3", 0.5}, {"B4", 0.3}});
@@ -179,37 +175,20 @@ int main() {
     // solver.bundle_price = {0, 24.1925, 49.468, 141.725};
     // solver.bundle_price = {0, 0, 0, 0};
     solver.bundle_price = {0, 30, 80, 200};
-    // solver.bundle_price = {0, 2000, 2000, 2000};
     // solver.solveBundleFW(100);
     // solver.resetNetwork(0);
-    // solver.solveBundleFW(100);
-    // solver.resetNetwork(0);
-    // solver.solveBundleFW(100);
-    // solver.resetNetwork(1);
     solver.solveBundleFW(50);
-    // solver.resetNetwork(0);
-    // solver.solveBundleFW(100);
-    // solver.resetNetwork(0);
-    // solver.solveBundleFW(100);
     // solver.getModeChoice();
     // solver.printMuCosts();
     // 统计路网拥堵数据
     // net.getCongestionData();
     // printBundleSurplusAndSubsidy(net, solver);
-    // // 计算并打印唯一性比值
-    // double uniqueness_ratio = solver.calculateUniquenessRatio();
-    // std::cout << "Uniqueness Condition Ratio for this scenario: " 
-    //         << uniqueness_ratio << std::endl;
     // 灵敏度分析
     // std::vector<std::string> modified_lines;
     // for (int i = 0; i < 10; ++i) {
     //     // std::vector<std::string> modified_lines;
     //     net.modifyCapacity(1.3, modified_lines); // 恢复原始容量
     //     solver.resetNetwork(1);
-    //     solver.solveBundleFW(100);
-    //     solver.resetNetwork(0);
-    //     solver.solveBundleFW(100);
-    //     solver.resetNetwork(0);
     //     solver.solveBundleFW(100);
     //     solver.getModeChoice();
     //     printBundleSurplusAndSubsidy(net, solver);
@@ -231,4 +210,5 @@ int main() {
     //     printBundleSurplusAndSubsidy(net, solver);
     // }
 }
+
 
