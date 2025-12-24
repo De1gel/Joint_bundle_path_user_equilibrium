@@ -1,0 +1,83 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "kill-test",
+      "type": "shell",
+      "command": "taskkill /IM test.exe /F >nul 2>&1 || exit 0",
+      "problemMatcher": []
+    },
+    {
+      "label": "build-dll",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-shared",
+        "-DMULTINET_EXPORTS",
+        "-g",
+        "-O0",
+        "dll\\src\\Node.cpp",
+        "dll\\src\\Link.cpp",
+        "dll\\src\\Layer.cpp",
+        "dll\\src\\Network.cpp",
+        "dll\\src\\Solver.cpp",
+        "-o",
+        "multi_net.dll",
+        "-I",
+        "dll\\include",
+        "-I",
+        "D:/MyCode/C++/libs/vcpkg/packages/eigen3_x64-windows/include",
+        "-L",
+        "D:/MyCode/C++/libs/vcpkg/packages/eigen3_x64-windows/lib",
+        "-Wl,--out-implib=multi_net.lib"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\multi_net"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Build multi_net.dll + import-lib"
+    },
+    {
+      "label": "build-test",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "${file}",
+        "-o",
+        "${fileBasenameNoExtension}.exe",
+        "-g",
+        "-I",
+        "D:\\MyCode\\C++\\multi_net\\dll\\include",
+        // "-I",
+        // "D:/MyCode/C++/libs/vcpkg/extern/LBFGSpp/include",
+        // "-I",
+        // "D:/MyCode/C++/libs/vcpkg/packages/eigen3_x64-windows/include",
+        // "-L",
+        // "D:/MyCode/C++/libs/vcpkg/packages/eigen3_x64-windows/lib",
+        // "-O2",
+        "-L",
+        "${workspaceFolder}\\multi_net",
+        "-lmulti_net"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "dependsOn": [
+        "kill-test",
+        "build-dll"
+      ],
+      "detail": "Build test.exe and link with multi_net.dll"
+    }
+  ]
+}
