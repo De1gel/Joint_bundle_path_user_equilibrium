@@ -58,4 +58,4 @@ When running `test.exe`, Windows must be able to locate `multi_net.dll`:
 - Put `multi_net.dll` in the same directory as `test.exe`, or
 - Add the directory containing `multi_net.dll` to `PATH`.
 
-If you use VS Code, you may also refer to the build example under `.vscode/`.
+### If you use VS Code, you may also refer to the build example under `.vscode/`.
