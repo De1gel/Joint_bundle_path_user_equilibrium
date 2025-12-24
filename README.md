@@ -1,4 +1,4 @@
-This repository provides C++ implementations and case-study data for the joint bundle–path heterogeneous user equilibrium model and the numerical experiments reported in the paper.
+This repository provides C++ implementations and case-study data for the joint bundle–path heterogeneous user equilibrium model, as well as the numerical experiments reported in the paper. The original dataset is also available from the Open-TNM repository: [junxie016/Open-TNM](https://github.com/junxie016/Open-TNM).
 
 The implementation includes a dynamic-link library (DLL) that implements a general multimodal network framework and traffic assignment algorithms.
 
